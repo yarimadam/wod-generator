@@ -47,7 +47,7 @@ class Person
     /** @param string $level */
     public function setLevel(string $level): void
     {
-        if (PersonLevel::isValid($level)) {
+        if (PersonLevel::classConstantsContains($level)) {
             $this->level = $level;
         } else {
             throw new \InvalidArgumentException(sprintf('Person level "%s" is invalid.', $level));

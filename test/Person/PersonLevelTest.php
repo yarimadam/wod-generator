@@ -14,12 +14,12 @@ class PersonLevelTest extends TestCase
 {
     public function testValidLevel()
     {
-        $this->assertTrue(PersonLevel::isValid('expert'));
-        $this->assertTrue(PersonLevel::isValid('beginner'));
+        $this->assertTrue(PersonLevel::classConstantsContains('expert'));
+        $this->assertTrue(PersonLevel::classConstantsContains('beginner'));
     }
 
     public function testInvalidLevel()
     {
-        $this->assertFalse(PersonLevel::isValid('rookie'));
+        $this->assertFalse(PersonLevel::classConstantsContains('rookie'));
     }
 }
