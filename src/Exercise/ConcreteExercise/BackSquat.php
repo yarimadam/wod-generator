@@ -1,9 +1,9 @@
 <?php
 
-namespace OneFit\Execise\ConcreteExercise;
+namespace OneFit\Exercise\ConcreteExercise;
 
-use OneFit\Execise\AbstractExercise;
-use OneFit\Execise\ExerciseType;
+use OneFit\Exercise\AbstractExercise;
+use OneFit\Exercise\ExerciseType;
 
 /**
  * Class BackSquat

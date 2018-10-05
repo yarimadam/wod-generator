@@ -1,6 +1,6 @@
 <?php
 
-namespace OneFit\Execise;
+namespace OneFit\Exercise;
 
 /**
  * Class Exercise
