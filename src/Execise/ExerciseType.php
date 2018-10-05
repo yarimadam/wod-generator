@@ -9,6 +9,6 @@ namespace OneFit\Execise;
  */
 class ExerciseType
 {
-    const NONCARDIO = 'undefined';
+    const NONCARDIO = 'noncardio';
     const CARDIO = 'cardio';
 }
