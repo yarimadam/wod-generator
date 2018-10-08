@@ -11,4 +11,5 @@ class ExerciseType
 {
     const NONCARDIO = 'noncardio';
     const CARDIO = 'cardio';
+    const REST = 'rest';
 }
