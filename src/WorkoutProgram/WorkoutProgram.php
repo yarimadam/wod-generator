@@ -8,8 +8,10 @@ use DateInterval;
 use DateTime;
 use OneFit\Activity\ActivityCategory;
 use OneFit\Activity\ActivityInterface;
+use OneFit\Activity\ActivityType;
 use OneFit\Person\Person;
 use OneFit\WorkoutProgram\Iterator\ActivityCategoryIterator;
+use OneFit\WorkoutProgram\Iterator\ActivityTypeIterator;
 
 /**
  * Class WorkoutProgram
@@ -83,6 +85,11 @@ class WorkoutProgram
     public function getExerciseCount(): int
     {
         return iterator_count(new ActivityCategoryIterator($this->activities, ActivityCategory::CATEGORY_EXERCISE));
+    }
+
+    public function getBreakCount(): int
+    {
+        return iterator_count(new ActivityTypeIterator($this->activities, ActivityType::TYPE_BREAK));
     }
 
     /** @return int Maximum number of exercises allowed in workout program. */
