@@ -2,6 +2,9 @@
 
 namespace OneFit;
 
+use DateInterval;
+use DateTimeImmutable;
+
 /**
  * Trait DomainUtilsTrait
  * @package OneFit
@@ -36,5 +39,20 @@ trait DomainUtilsTrait
             return in_array($value, $constants);
         }
         return false;
+    }
+
+    /**
+     * @param DateInterval $dateInterval
+     * @return int seconds
+     */
+    public static function dateIntervalToSeconds(DateInterval $dateInterval)
+    {
+        try {
+            $reference = new DateTimeImmutable();
+            $endTime = $reference->add($dateInterval);
+            return $endTime->getTimestamp() - $reference->getTimestamp();
+        } catch (\Exception $e) {
+            return 0;
+        }
     }
 }

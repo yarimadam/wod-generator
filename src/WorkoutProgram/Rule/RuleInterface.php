@@ -2,6 +2,7 @@
 
 namespace OneFit\WorkoutProgram\Rule;
 
+use DateInterval;
 use OneFit\Activity\ActivityInterface;
 use OneFit\WorkoutProgram\WorkoutProgram;
 
@@ -12,5 +13,11 @@ use OneFit\WorkoutProgram\WorkoutProgram;
  */
 interface RuleInterface
 {
-    public function resolve(WorkoutProgram $workoutProgram, ActivityInterface $activity);
+    /**
+     * @param WorkoutProgram $workoutProgram
+     * @param ActivityInterface $activity
+     * @param DateInterval $duration
+     * @return mixed
+     */
+    public function resolve(WorkoutProgram $workoutProgram, ActivityInterface $activity, DateInterval $duration);
 }

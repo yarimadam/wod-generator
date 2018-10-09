@@ -2,6 +2,7 @@
 
 namespace OneFit\WorkoutProgram;
 
+use DateInterval;
 use OneFit\Activity\ActivityInterface;
 use OneFit\WorkoutProgram\Rule\RuleInterface;
 
@@ -18,12 +19,13 @@ class Governor
     /**
      * @param WorkoutProgram $workoutProgram
      * @param ActivityInterface $exercise
+     * @param DateInterval $duration
      * @return bool
      */
-    public function govern(WorkoutProgram $workoutProgram, ActivityInterface $exercise): bool
+    public function govern(WorkoutProgram $workoutProgram, ActivityInterface $exercise, DateInterval $duration): bool
     {
         foreach ($this->rules as $rule) {
-            if ($rule->resolve($workoutProgram, $exercise) === false) {
+            if ($rule->resolve($workoutProgram, $exercise, $duration) === false) {
                 return false;
             }
         }

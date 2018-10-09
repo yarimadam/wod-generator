@@ -2,6 +2,7 @@
 
 namespace OneFit\WorkoutProgram\Rule\ConcreteRule;
 
+use DateInterval;
 use OneFit\Activity\ActivityInterface;
 use OneFit\Activity\ActivityType;
 use OneFit\WorkoutProgram\Rule\RuleInterface;
@@ -15,7 +16,7 @@ use OneFit\WorkoutProgram\WorkoutProgramSequence;
  */
 class CardioExercisesShouldNotFollowEachOther implements RuleInterface
 {
-    public function resolve(WorkoutProgram $workoutProgram, ActivityInterface $activity)
+    public function resolve(WorkoutProgram $workoutProgram, ActivityInterface $activity, DateInterval $duration)
     {
         $exerciseCount = $workoutProgram->getExerciseCount();
 

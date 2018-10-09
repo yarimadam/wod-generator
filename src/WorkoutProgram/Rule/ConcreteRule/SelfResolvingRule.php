@@ -2,6 +2,7 @@
 
 namespace OneFit\WorkoutProgram\Rule\ConcreteRule;
 
+use DateInterval;
 use OneFit\Activity\ActivityInterface;
 use OneFit\WorkoutProgram\Rule\RuleInterface;
 use OneFit\WorkoutProgram\WorkoutProgram;
@@ -13,7 +14,7 @@ use OneFit\WorkoutProgram\WorkoutProgram;
  */
 class SelfResolvingRule implements RuleInterface
 {
-    public function resolve(WorkoutProgram $workoutProgram, ActivityInterface $activity)
+    public function resolve(WorkoutProgram $workoutProgram, ActivityInterface $activity, DateInterval $duration)
     {
         return true;
     }

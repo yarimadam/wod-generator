@@ -62,18 +62,18 @@ class WorkoutProgram
     }
 
     /**
-     * @param ActivityInterface $exercise Activity.
+     * @param ActivityInterface $activity Activity.
      * @param DateInterval $duration Activity duration.
      * @return bool True if activity governed by rules, and added to the program. Otherwise, false.
      */
-    public function addActivity(ActivityInterface $exercise, DateInterval $duration = null)
+    public function addActivity(ActivityInterface $activity, DateInterval $duration = null)
     {
         if (is_null($duration)) {
             $duration = $this->defaultActivityDuration;
         }
 
-        if ($this->governor->govern($this, $exercise)) {
-            $this->activities->append(new WorkoutProgramSequence($this, $exercise, $duration));
+        if ($this->governor->govern($this, $activity, $duration)) {
+            $this->activities->append(new WorkoutProgramSequence($this, $activity, $duration));
             return true;
         }
         return false;
@@ -101,5 +101,11 @@ class WorkoutProgram
     public function getActivityIterator()
     {
         return $this->activities->getIterator();
+    }
+
+    /** @return Person */
+    public function getParticipant(): Person
+    {
+        return $this->participant;
     }
 }

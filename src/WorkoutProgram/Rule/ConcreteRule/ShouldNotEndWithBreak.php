@@ -2,6 +2,7 @@
 
 namespace OneFit\WorkoutProgram\Rule\ConcreteRule;
 
+use DateInterval;
 use OneFit\Activity\ActivityInterface;
 use OneFit\Activity\ActivityType;
 use OneFit\WorkoutProgram\Rule\RuleInterface;
@@ -14,7 +15,7 @@ use OneFit\WorkoutProgram\WorkoutProgram;
  */
 class ShouldNotEndWithBreak implements RuleInterface
 {
-    public function resolve(WorkoutProgram $workoutProgram, ActivityInterface $activity)
+    public function resolve(WorkoutProgram $workoutProgram, ActivityInterface $activity, DateInterval $duration): bool
     {
         $exerciseCount = $workoutProgram->getExerciseCount();
         $maxNumberOfExercises = $workoutProgram->getMaxNumberOfExercises();
