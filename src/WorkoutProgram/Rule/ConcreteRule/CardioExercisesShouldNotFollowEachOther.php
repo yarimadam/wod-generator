@@ -4,7 +4,6 @@ namespace OneFit\WorkoutProgram\Rule\ConcreteRule;
 
 use OneFit\Activity\ActivityInterface;
 use OneFit\Activity\ActivityType;
-use OneFit\Exercise\AbstractExercise;
 use OneFit\WorkoutProgram\Rule\RuleInterface;
 use OneFit\WorkoutProgram\WorkoutProgram;
 use OneFit\WorkoutProgram\WorkoutProgramSequence;
