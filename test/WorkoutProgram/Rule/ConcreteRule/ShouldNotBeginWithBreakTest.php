@@ -2,6 +2,7 @@
 
 namespace OneFit\Test\WorkoutProgram\Rule\ConcreteRule;
 
+use DateInterval;
 use OneFit\Activity\ConcreteActivity\BreakActivity;
 use OneFit\Exercise\ConcreteExercise\PushUpExercise;
 use OneFit\Test\WorkoutProgram\WorkoutProgramTest;
@@ -15,7 +16,7 @@ use PHPUnit\Framework\TestCase;
  */
 class ShouldNotBeginWithBreakTest extends TestCase
 {
-    public function testAddBreakActivityWhileNoExercisePresent()
+    public function testAddBreakActivityWhileNoExercisePresent(): void
     {
         $this->expectException('LogicException');
 
@@ -25,10 +26,10 @@ class ShouldNotBeginWithBreakTest extends TestCase
 
         $rule = new ShouldNotBeginWithBreak();
 
-        $rule->resolve($workoutProgram, new BreakActivity());
+        $rule->resolve($workoutProgram, new BreakActivity(), DateInterval::createFromDateString('1 minutes'));
     }
 
-    public function testAddBreakActivityWhileOneExercisePresent()
+    public function testAddBreakActivityWhileOneExercisePresent(): void
     {
         $workoutProgram = WorkoutProgramTest::createWorkoutProgram();
 
@@ -36,7 +37,11 @@ class ShouldNotBeginWithBreakTest extends TestCase
 
         $rule = new ShouldNotBeginWithBreak();
 
-        $resolved = $rule->resolve($workoutProgram, new BreakActivity());
+        $resolved = $rule->resolve(
+            $workoutProgram,
+            new BreakActivity(),
+            DateInterval::createFromDateString('1 minutes')
+        );
 
         $this->assertTrue($resolved);
     }

@@ -17,17 +17,19 @@ use OneFit\WorkoutProgram\WorkoutProgram;
  */
 class BeginnersShouldGetOneMinuteBreaks implements RuleInterface
 {
-    public function resolve(WorkoutProgram $workoutProgram, ActivityInterface $activity, DateInterval $duration)
+    public function resolve(WorkoutProgram $workoutProgram, ActivityInterface $activity, DateInterval $duration): bool
     {
         $participantLevel = $workoutProgram->getParticipant()->getLevel();
 
-        if ($participantLevel === PersonLevel::BEGINNER) {
-            if ($activity->getType() == ActivityType::TYPE_BREAK) {
-                if (DomainUtilsTrait::dateIntervalToSeconds($duration) !==
-                    DomainUtilsTrait::dateIntervalToSeconds(DateInterval::createFromDateString('1 minutes'))) {
-                    throw new \LogicException('Beginners should not have breaks more than 1 minute each.');
-                }
-            }
+        $participantLevelMatches = PersonLevel::BEGINNER === $participantLevel;
+
+        $activityTypeMatches = $activity->getType() === ActivityType::TYPE_BREAK;
+
+        $durationMatches = DomainUtilsTrait::dateIntervalToSeconds($duration) ===
+            DomainUtilsTrait::dateIntervalToSeconds(DateInterval::createFromDateString('1 minutes'));
+
+        if ($participantLevelMatches && $activityTypeMatches && $durationMatches === false) {
+            throw new \LogicException('Beginners should take 1 minute only breaks.');
         }
 
         return true;

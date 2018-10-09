@@ -2,6 +2,7 @@
 
 namespace OneFit\Test\WorkoutProgram\Rule\ConcreteRule;
 
+use DateInterval;
 use OneFit\Exercise\ConcreteExercise\HandstandPractiseExercise;
 use OneFit\Exercise\ConcreteExercise\JumpingRopeExercise;
 use OneFit\Exercise\ConcreteExercise\PushUpExercise;
@@ -18,7 +19,7 @@ use PHPUnit\Framework\TestCase;
  */
 class CardioExercisesShouldNotFollowEachOtherTest extends TestCase
 {
-    public function testAddCardioExerciseWhilePreviousExerciseTypeIsCardio()
+    public function testAddCardioExerciseWhilePreviousExerciseTypeIsCardio(): void
     {
         $this->expectException('LogicException');
 
@@ -31,10 +32,10 @@ class CardioExercisesShouldNotFollowEachOtherTest extends TestCase
 
         $rule = new CardioExercisesShouldNotFollowEachOther();
 
-        $rule->resolve($workoutProgram, new ShortSprintExercise());
+        $rule->resolve($workoutProgram, new ShortSprintExercise(), DateInterval::createFromDateString('1 minutes'));
     }
 
-    public function testAddCardioExerciseWhilePreviousExerciseTypeIsNonCardio()
+    public function testAddCardioExerciseWhilePreviousExerciseTypeIsNonCardio(): void
     {
         $workoutProgram = WorkoutProgramTest::createWorkoutProgram();
 
@@ -43,7 +44,11 @@ class CardioExercisesShouldNotFollowEachOtherTest extends TestCase
 
         $rule = new CardioExercisesShouldNotFollowEachOther();
 
-        $resolved = $rule->resolve($workoutProgram, new ShortSprintExercise());
+        $resolved = $rule->resolve(
+            $workoutProgram,
+            new ShortSprintExercise(),
+            DateInterval::createFromDateString('1 minutes')
+        );
 
         $this->assertTrue($resolved);
     }

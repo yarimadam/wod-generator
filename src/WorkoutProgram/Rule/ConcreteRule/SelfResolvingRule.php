@@ -14,7 +14,7 @@ use OneFit\WorkoutProgram\WorkoutProgram;
  */
 class SelfResolvingRule implements RuleInterface
 {
-    public function resolve(WorkoutProgram $workoutProgram, ActivityInterface $activity, DateInterval $duration)
+    public function resolve(WorkoutProgram $workoutProgram, ActivityInterface $activity, DateInterval $duration): bool
     {
         return true;
     }

@@ -16,7 +16,7 @@ use PHPUnit\Framework\TestCase;
  */
 class ShouldNotEndWithBreakTest extends TestCase
 {
-    public function testAddBreakActivityAfterActivityCountAlreadyAtMax()
+    public function testAddBreakActivityAfterActivityCountAlreadyAtMax(): void
     {
         $this->expectException('LogicException');
 
@@ -30,10 +30,10 @@ class ShouldNotEndWithBreakTest extends TestCase
 
         $breakActivity = new BreakActivity();
 
-        $rule->resolve($workoutProgram, $breakActivity);
+        $rule->resolve($workoutProgram, $breakActivity, DateInterval::createFromDateString('1 minutes'));
     }
 
-    public function testAddBreakActivityBeforeActivityCountReachMax()
+    public function testAddBreakActivityBeforeActivityCountReachMax(): void
     {
         $workoutProgram = WorkoutProgramTest::createWorkoutProgram();
 
@@ -43,7 +43,7 @@ class ShouldNotEndWithBreakTest extends TestCase
 
         $breakActivity = new BreakActivity();
 
-        $resolved = $rule->resolve($workoutProgram, $breakActivity);
+        $resolved = $rule->resolve($workoutProgram, $breakActivity, DateInterval::createFromDateString('1 minutes'));
 
         $this->assertTrue($resolved);
     }

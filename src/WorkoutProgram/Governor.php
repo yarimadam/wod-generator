@@ -16,12 +16,6 @@ class Governor
     /** @var RuleInterface[] */
     protected $rules;
 
-    /**
-     * @param WorkoutProgram $workoutProgram
-     * @param ActivityInterface $exercise
-     * @param DateInterval $duration
-     * @return bool
-     */
     public function govern(WorkoutProgram $workoutProgram, ActivityInterface $exercise, DateInterval $duration): bool
     {
         foreach ($this->rules as $rule) {
@@ -33,8 +27,7 @@ class Governor
         return true;
     }
 
-    /** @param RuleInterface $rule */
-    public function addRule(RuleInterface $rule)
+    public function addRule(RuleInterface $rule): void
     {
         $this->rules[] = $rule;
     }

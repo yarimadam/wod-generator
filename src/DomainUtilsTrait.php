@@ -13,8 +13,7 @@ use DateTimeImmutable;
 trait DomainUtilsTrait
 {
     /**
-     * Returns class constants.
-     * @return array
+     * @return string[]
      */
     private static function getClassConstants(): array
     {
@@ -27,12 +26,7 @@ trait DomainUtilsTrait
         return $reflectionClass->getConstants();
     }
 
-    /**
-     * Check if given value exists in class constants.
-     * @param string $value
-     * @return bool
-     */
-    public static function classConstantsContains($value): bool
+    public static function classConstantsContains(string $value): bool
     {
         $constants = self::getClassConstants();
         if ($constants) {
@@ -41,11 +35,7 @@ trait DomainUtilsTrait
         return false;
     }
 
-    /**
-     * @param DateInterval $dateInterval
-     * @return int seconds
-     */
-    public static function dateIntervalToSeconds(DateInterval $dateInterval)
+    public static function dateIntervalToSeconds(DateInterval $dateInterval): int
     {
         try {
             $reference = new DateTimeImmutable();

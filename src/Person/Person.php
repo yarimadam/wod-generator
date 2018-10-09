@@ -26,25 +26,21 @@ class Person
         $this->setLevel($level);
     }
 
-    /** @return string */
     public function getName(): string
     {
         return $this->name;
     }
 
-    /** @param string $name */
     public function setName(string $name): void
     {
         $this->name = $name;
     }
 
-    /** @return string */
     public function getLevel(): string
     {
         return $this->level;
     }
 
-    /** @param string $level */
     public function setLevel(string $level): void
     {
         if (PersonLevel::classConstantsContains($level)) {

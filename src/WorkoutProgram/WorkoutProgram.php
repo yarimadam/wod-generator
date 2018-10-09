@@ -50,7 +50,7 @@ class WorkoutProgram
         Person $participant,
         Governor $governor,
         DateTime $startDate,
-        $maxNumberOfExercises = null
+        int $maxNumberOfExercises = null
     ) {
         $this->participant = $participant;
         $this->governor = $governor;
@@ -66,7 +66,7 @@ class WorkoutProgram
      * @param DateInterval $duration Activity duration.
      * @return bool True if activity governed by rules, and added to the program. Otherwise, false.
      */
-    public function addActivity(ActivityInterface $activity, DateInterval $duration = null)
+    public function addActivity(ActivityInterface $activity, DateInterval $duration = null): bool
     {
         if (is_null($duration)) {
             $duration = $this->defaultActivityDuration;
@@ -91,19 +91,16 @@ class WorkoutProgram
         return $this->maxNumberOfExercises;
     }
 
-    /** @return DateTime Current time track. */
-    public function getTimeTrack()
+    public function getTimeTrack(): DateTime
     {
         return $this->timeTrack;
     }
 
-    /** @return ArrayIterator */
-    public function getActivityIterator()
+    public function getActivityIterator(): ArrayIterator
     {
         return $this->activities->getIterator();
     }
 
-    /** @return Person */
     public function getParticipant(): Person
     {
         return $this->participant;

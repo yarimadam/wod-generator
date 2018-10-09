@@ -27,13 +27,7 @@ class WorkoutProgramSequence
 
     /** @var DateTime */
     protected $endDate;
-
-    /**
-     * WorkoutProgramSequence constructor.
-     * @param WorkoutProgram $workoutProgram
-     * @param ActivityInterface $activity
-     * @param DateInterval $duration
-     */
+    
     public function __construct(WorkoutProgram $workoutProgram, ActivityInterface $activity, DateInterval $duration)
     {
         $this->workoutProgram = $workoutProgram;
@@ -46,7 +40,6 @@ class WorkoutProgramSequence
         $workoutProgram->getTimeTrack()->add($duration);
     }
 
-    /** @return ActivityInterface */
     public function getActivity(): ActivityInterface
     {
         return $this->activity;

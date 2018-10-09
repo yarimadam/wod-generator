@@ -21,7 +21,7 @@ class ActivityCategoryIterator extends FilterIterator
      * @param ArrayObject $activities
      * @param string $filter
      */
-    public function __construct(ArrayObject $activities, $filter)
+    public function __construct(ArrayObject $activities, string $filter)
     {
         parent::__construct($activities->getIterator());
         $this->filter = $filter;

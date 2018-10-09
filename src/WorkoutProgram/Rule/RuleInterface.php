@@ -13,11 +13,5 @@ use OneFit\WorkoutProgram\WorkoutProgram;
  */
 interface RuleInterface
 {
-    /**
-     * @param WorkoutProgram $workoutProgram
-     * @param ActivityInterface $activity
-     * @param DateInterval $duration
-     * @return mixed
-     */
-    public function resolve(WorkoutProgram $workoutProgram, ActivityInterface $activity, DateInterval $duration);
+    public function resolve(WorkoutProgram $workoutProgram, ActivityInterface $activity, DateInterval $duration): bool;
 }
