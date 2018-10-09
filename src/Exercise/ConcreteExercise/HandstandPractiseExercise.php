@@ -2,15 +2,16 @@
 
 namespace OneFit\Exercise\ConcreteExercise;
 
+use OneFit\Activity\ActivityInterface;
+use OneFit\Activity\ActivityType;
 use OneFit\Exercise\AbstractExercise;
-use OneFit\Exercise\ExerciseType;
 
 /**
- * Class HandstandPractise
- * @package OneFit\Execise\ConcreteExercise
+ * Class HandstandPractiseExercise
+ * @package OneFit\Exercise\ConcreteExercise
  * @author Halil Tuncay Üner <tuncayuner@gmail.com>
  */
-class HandstandPractise extends AbstractExercise
+final class HandstandPractiseExercise extends AbstractExercise implements ActivityInterface
 {
     /**
      * HandstandPractise constructor.
@@ -18,6 +19,6 @@ class HandstandPractise extends AbstractExercise
     public function __construct()
     {
         $this->name = 'Handstand Practise';
-        $this->type = ExerciseType::NONCARDIO;
+        $this->type = ActivityType::TYPE_NONCARDIO;
     }
 }

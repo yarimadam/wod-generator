@@ -2,34 +2,19 @@
 
 namespace OneFit\Exercise;
 
+use OneFit\Activity\AbstractActivity;
+use OneFit\Activity\ActivityCategory;
+
 /**
  * Class Exercise
  * @package OneFit\Execise
  * @author Halil Tuncay Üner <tuncayuner@gmail.com>
  */
-abstract class AbstractExercise
+abstract class AbstractExercise extends AbstractActivity
 {
-    /** @var string $name */
-    protected $name;
-
-    /** @var string $type */
-    protected $type;
-
-    /** @return string */
-    public function getName(): string
+    /** @inheritdoc */
+    public function getCategory(): string
     {
-        return $this->name;
-    }
-
-    /** @return string */
-    public function getType(): string
-    {
-        return $this->type;
-    }
-
-    /** @return bool */
-    public function isCardio(): bool
-    {
-        return ($this->type === ExerciseType::CARDIO);
+        return ActivityCategory::CATEGORY_EXERCISE;
     }
 }
