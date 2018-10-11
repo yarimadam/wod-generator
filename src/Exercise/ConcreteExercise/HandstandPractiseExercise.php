@@ -13,6 +13,7 @@ use OneFit\Exercise\AbstractExercise;
  */
 final class HandstandPractiseExercise extends AbstractExercise implements ActivityInterface
 {
+    const NAME = 'Handstand Practise';
     /**
      * HandstandPractise constructor.
      */

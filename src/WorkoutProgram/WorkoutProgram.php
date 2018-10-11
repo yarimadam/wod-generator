@@ -81,6 +81,14 @@ class WorkoutProgram
         return false;
     }
 
+    /**
+     * @return ArrayObject|ActivityInterface[]
+     */
+    public function getActivities()
+    {
+        return $this->activities;
+    }
+
     /** @return int Number of exercises in the workout program. */
     public function getExerciseCount(): int
     {
