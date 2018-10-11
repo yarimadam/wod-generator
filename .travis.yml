@@ -1,0 +1,13 @@
+language: php
+
+sudo: false
+
+matrix:
+  include:
+  - php: 7.2
+
+install:
+- composer install
+
+script:
+- php bin/phpunit
