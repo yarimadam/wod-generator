@@ -21,9 +21,9 @@ class ExpertsShouldGetTwoMinuteBreaksTest extends TestCase
     {
         $this->expectException('LogicException');
 
-        $beginner = new Person('Foo Bar', PersonLevel::EXPERT);
+        $participant = new Person('Foo Bar', PersonLevel::EXPERT);
 
-        $workoutProgram = WorkoutProgramTest::createWorkoutProgram($beginner);
+        $workoutProgram = WorkoutProgramTest::createWorkoutProgram($participant);
 
         $rule = new ExpertsShouldGetTwoMinuteBreaks();
 

@@ -23,7 +23,7 @@ class ExpertsShouldGetTwoMinuteBreaks implements RuleInterface
 
         $participantLevelMatches = PersonLevel::EXPERT === $participantLevel;
 
-        $activityTypeMatches = $activity->getType() === ActivityType::TYPE_BREAK;
+        $activityTypeMatches = $activity::getType() === ActivityType::TYPE_BREAK;
 
         $durationMatches = DomainUtilsTrait::dateIntervalToSeconds($duration) ===
             DomainUtilsTrait::dateIntervalToSeconds(DateInterval::createFromDateString('2 minutes'));

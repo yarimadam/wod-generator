@@ -13,12 +13,15 @@ use OneFit\Exercise\AbstractExercise;
  */
 final class ShortSprintExercise extends AbstractExercise implements ActivityInterface
 {
-    /**
-     * ShortSprintExercise constructor.
-     */
-    public function __construct()
+    /** @inheritdoc */
+    public static function getName(): string
     {
-        $this->name = 'Short Sprint';
-        $this->type = ActivityType::TYPE_CARDIO;
+        return 'Short Sprint';
+    }
+
+    /** @inheritdoc */
+    public static function getType(): string
+    {
+        return ActivityType::TYPE_CARDIO;
     }
 }

@@ -6,6 +6,7 @@ use DateTime;
 use OneFit\Activity\ConcreteActivity\BreakActivity;
 use OneFit\Exercise\ConcreteExercise\PushUpExercise;
 use OneFit\Exercise\ConcreteExercise\ShortSprintExercise;
+use OneFit\Gym\Gym;
 use OneFit\Person\Person;
 use OneFit\Person\PersonLevel;
 use OneFit\WorkoutProgram\Governor;
@@ -51,11 +52,16 @@ class WorkoutProgramTest extends TestCase
         Person $participant = null,
         Governor $governor = null,
         DateTime $startDate = null,
+        Gym $gym = null,
         array $rules = null
     ): WorkoutProgram {
         $participant = $participant ?? new Person('Foo Bar', PersonLevel::EXPERT);
 
         $governor = $governor ?? new Governor();
+
+        $startDate = $startDate ?? DateTime::createFromFormat('Y-m-d H:i:s', '2018-01-01 13:00:00');
+
+        $gym = $gym ?? new Gym();
 
         $rules = $rules ?? [new SelfResolvingRule()];
 
@@ -63,8 +69,6 @@ class WorkoutProgramTest extends TestCase
             $governor->addRule($rule);
         }
 
-        $startDate = $startDate ?? DateTime::createFromFormat('Y-m-d H:i:s', '2018-01-01 13:00:00');
-
-        return new WorkoutProgram($participant, $governor, $startDate);
+        return new WorkoutProgram($participant, $governor, $startDate, $gym);
     }
 }

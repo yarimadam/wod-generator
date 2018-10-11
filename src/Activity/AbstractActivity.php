@@ -9,24 +9,6 @@ namespace OneFit\Activity;
  */
 abstract class AbstractActivity implements ActivityInterface
 {
-    /** @var string $name */
-    protected $name;
-
-    /** @var string $type */
-    protected $type;
-
-    /** @inheritdoc */
-    public function getName(): string
-    {
-        return $this->name;
-    }
-
-    /** @inheritdoc */
-    public function getType(): string
-    {
-        return $this->type;
-    }
-
     /** @inheritdoc */
     public function getCategory(): string
     {

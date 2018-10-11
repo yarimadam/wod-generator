@@ -13,12 +13,15 @@ use OneFit\Exercise\AbstractExercise;
  */
 final class JumpingRopeExercise extends AbstractExercise implements ActivityInterface
 {
-    /**
-     * JumpingRopeExercise constructor.
-     */
-    public function __construct()
+    /** @inheritdoc */
+    public static function getName(): string
     {
-        $this->name = 'Jumping Rope';
-        $this->type = ActivityType::TYPE_CARDIO;
+        return 'Jumping Rope';
+    }
+
+    /** @inheritdoc */
+    public static function getType(): string
+    {
+        return ActivityType::TYPE_CARDIO;
     }
 }

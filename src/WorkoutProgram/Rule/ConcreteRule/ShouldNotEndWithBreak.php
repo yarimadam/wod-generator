@@ -19,7 +19,7 @@ class ShouldNotEndWithBreak implements RuleInterface
     {
         $exerciseCount = $workoutProgram->getExerciseCount();
         $maxNumberOfExercises = $workoutProgram->getMaxNumberOfExercises();
-        $exerciseType = $activity->getType();
+        $exerciseType = $activity::getType();
 
         if ($exerciseCount === $maxNumberOfExercises && $exerciseType === ActivityType::TYPE_BREAK) {
             throw new \LogicException('Program should not end with "Break"');

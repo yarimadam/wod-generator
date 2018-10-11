@@ -18,7 +18,7 @@ class ShouldNotBeginWithBreak implements RuleInterface
     public function resolve(WorkoutProgram $workoutProgram, ActivityInterface $activity, DateInterval $duration): bool
     {
         $exerciseCount = $workoutProgram->getExerciseCount();
-        $exerciseType = $activity->getType();
+        $exerciseType = $activity::getType();
 
         if ($exerciseCount === 0 && $exerciseType === ActivityType::TYPE_BREAK) {
             throw new \LogicException('Program should not start with "Break"');

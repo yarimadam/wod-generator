@@ -13,12 +13,15 @@ use OneFit\Exercise\AbstractExercise;
  */
 final class JumpingJackExercise extends AbstractExercise implements ActivityInterface
 {
-    /**
-     * JumpingJackExercise constructor.
-     */
-    public function __construct()
+    /** @inheritdoc */
+    public static function getName(): string
     {
-        $this->name = 'Jumping Jack';
-        $this->type = ActivityType::TYPE_CARDIO;
+        return 'Jumping Jack';
+    }
+
+    /** @inheritdoc */
+    public static function getType(): string
+    {
+        return ActivityType::TYPE_CARDIO;
     }
 }

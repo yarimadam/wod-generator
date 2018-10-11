@@ -13,6 +13,6 @@ class ActivityNameIterator extends AbstractActivityIterator
 {
     protected function getCompareValue(WorkoutProgramSequence $workoutProgramSequence): string
     {
-        return $workoutProgramSequence->getActivity()->getName();
+        return $workoutProgramSequence->getActivity()::getName();
     }
 }

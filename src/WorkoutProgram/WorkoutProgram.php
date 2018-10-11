@@ -9,6 +9,7 @@ use DateTime;
 use OneFit\Activity\ActivityCategory;
 use OneFit\Activity\ActivityInterface;
 use OneFit\Activity\ActivityType;
+use OneFit\Gym\Gym;
 use OneFit\Person\Person;
 use OneFit\WorkoutProgram\Iterator\ActivityCategoryIterator;
 use OneFit\WorkoutProgram\Iterator\ActivityTypeIterator;
@@ -20,6 +21,9 @@ use OneFit\WorkoutProgram\Iterator\ActivityTypeIterator;
  */
 class WorkoutProgram
 {
+    /** @var Gym */
+    protected $gym;
+
     /** @var Person */
     protected $participant;
 
@@ -46,12 +50,14 @@ class WorkoutProgram
      * @param Person $participant
      * @param Governor $governor
      * @param DateTime $startDate
+     * @param Gym $gym
      * @param null|int $maxNumberOfExercises
      */
     public function __construct(
         Person $participant,
         Governor $governor,
         DateTime $startDate,
+        Gym $gym,
         int $maxNumberOfExercises = null
     ) {
         $this->participant = $participant;
@@ -61,6 +67,7 @@ class WorkoutProgram
         $this->maxNumberOfExercises = $maxNumberOfExercises ? $maxNumberOfExercises : 30;
         $this->activities = new ArrayObject();
         $this->defaultActivityDuration = DateInterval::createFromDateString('1 minutes');
+        $this->gym = $gym;
     }
 
     /**
@@ -119,5 +126,10 @@ class WorkoutProgram
     public function getParticipant(): Person
     {
         return $this->participant;
+    }
+
+    public function getGym(): Gym
+    {
+        return $this->gym;
     }
 }

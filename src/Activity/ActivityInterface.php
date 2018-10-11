@@ -10,13 +10,13 @@ namespace OneFit\Activity;
 interface ActivityInterface
 {
     /** @return string Get activity name */
-    public function getName(): string;
+    public static function getName(): string;
 
     /**
      * @return string Get activity type
      * @see ActivityType For complete list of activity types
      */
-    public function getType(): string;
+    public static function getType(): string;
 
     /**
      * @return string Get category

@@ -13,12 +13,15 @@ use OneFit\Exercise\AbstractExercise;
  */
 final class FrontSquatExercise extends AbstractExercise implements ActivityInterface
 {
-    /**
-     * FrontSquatExercise constructor.
-     */
-    public function __construct()
+    /** @inheritdoc */
+    public static function getName(): string
     {
-        $this->name = 'Front Squat';
-        $this->type = ActivityType::TYPE_NONCARDIO;
+        return 'Front Squat';
+    }
+
+    /** @inheritdoc */
+    public static function getType(): string
+    {
+        return ActivityType::TYPE_NONCARDIO;
     }
 }

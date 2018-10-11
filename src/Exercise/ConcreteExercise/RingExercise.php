@@ -13,12 +13,15 @@ use OneFit\Exercise\AbstractExercise;
  */
 final class RingExercise extends AbstractExercise implements ActivityInterface
 {
-    /**
-     * RingExercise constructor.
-     */
-    public function __construct()
+    /** @inheritdoc */
+    public static function getName(): string
     {
-        $this->name = 'Ring';
-        $this->type = ActivityType::TYPE_NONCARDIO;
+        return 'Ring';
+    }
+
+    /** @inheritdoc */
+    public static function getType(): string
+    {
+        return ActivityType::TYPE_NONCARDIO;
     }
 }

@@ -13,12 +13,15 @@ use OneFit\Exercise\AbstractExercise;
  */
 final class PullUpExercise extends AbstractExercise implements ActivityInterface
 {
-    /**
-     * PullUpExercise constructor.
-     */
-    public function __construct()
+    /** @inheritdoc */
+    public static function getName(): string
     {
-        $this->name = 'Pull Up';
-        $this->type = ActivityType::TYPE_NONCARDIO;
+        return 'Pull Up';
+    }
+
+    /** @inheritdoc */
+    public static function getType(): string
+    {
+        return ActivityType::TYPE_NONCARDIO;
     }
 }

@@ -23,7 +23,7 @@ class BeginnersShouldGetOneMinuteBreaks implements RuleInterface
 
         $participantLevelMatches = PersonLevel::BEGINNER === $participantLevel;
 
-        $activityTypeMatches = $activity->getType() === ActivityType::TYPE_BREAK;
+        $activityTypeMatches = $activity::getType() === ActivityType::TYPE_BREAK;
 
         $durationMatches = DomainUtilsTrait::dateIntervalToSeconds($duration) ===
             DomainUtilsTrait::dateIntervalToSeconds(DateInterval::createFromDateString('1 minutes'));

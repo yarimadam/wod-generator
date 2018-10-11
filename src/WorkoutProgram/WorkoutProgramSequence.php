@@ -27,15 +27,21 @@ class WorkoutProgramSequence
 
     /** @var DateTime */
     protected $endDate;
-    
+
     public function __construct(WorkoutProgram $workoutProgram, ActivityInterface $activity, DateInterval $duration)
     {
         $this->workoutProgram = $workoutProgram;
         $this->activity = $activity;
         $this->duration = $duration;
 
-        $this->startDate = clone $workoutProgram->getTimeTrack();
-        $this->endDate = clone $workoutProgram->getTimeTrack()->add($duration);
+        $startDate = clone $workoutProgram->getTimeTrack();
+        $endDate = clone $startDate;
+        $endDate->add($duration);
+
+        $this->startDate = $startDate;
+        $this->endDate = $endDate;
+
+        $workoutProgram->getGym()->getActivitySlotContainer()->occupySlot($activity, $startDate, $endDate);
 
         $workoutProgram->getTimeTrack()->add($duration);
     }

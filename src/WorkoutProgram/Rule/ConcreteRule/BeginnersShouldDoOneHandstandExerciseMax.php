@@ -20,12 +20,12 @@ class BeginnersShouldDoOneHandstandExerciseMax implements RuleInterface
     public function resolve(WorkoutProgram $workoutProgram, ActivityInterface $activity, DateInterval $duration): bool
     {
         $handstandExerciseCount = iterator_count(
-            new ActivityNameIterator($workoutProgram->getActivities(), HandstandPractiseExercise::NAME)
+            new ActivityNameIterator($workoutProgram->getActivities(), HandstandPractiseExercise::getName())
         );
 
         $participantLevelMatches = $workoutProgram->getParticipant()->getLevel() === PersonLevel::BEGINNER;
 
-        $activityNameMatches = $activity->getName() === HandstandPractiseExercise::NAME;
+        $activityNameMatches = $activity::getName() === HandstandPractiseExercise::getName();
 
         if ($participantLevelMatches && $activityNameMatches && $handstandExerciseCount > 0) {
             throw new \LogicException('Beginners should do a maximum of one handstand practise exercise.');

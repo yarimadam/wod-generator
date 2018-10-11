@@ -13,13 +13,15 @@ use OneFit\Exercise\AbstractExercise;
  */
 final class HandstandPractiseExercise extends AbstractExercise implements ActivityInterface
 {
-    const NAME = 'Handstand Practise';
-    /**
-     * HandstandPractise constructor.
-     */
-    public function __construct()
+    /** @inheritdoc */
+    public static function getName(): string
     {
-        $this->name = 'Handstand Practise';
-        $this->type = ActivityType::TYPE_NONCARDIO;
+        return 'Handstand Practise';
+    }
+
+    /** @inheritdoc */
+    public static function getType(): string
+    {
+        return ActivityType::TYPE_NONCARDIO;
     }
 }

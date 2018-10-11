@@ -31,8 +31,8 @@ class CardioExercisesShouldNotFollowEachOther implements RuleInterface
         /** @var WorkoutProgramSequence $workoutProgramSequence */
         $workoutProgramSequence = $iterator->current();
 
-        $lastActivityType = $workoutProgramSequence->getActivity()->getType();
-        $activityType = $activity->getType();
+        $lastActivityType = $workoutProgramSequence->getActivity()::getType();
+        $activityType = $activity::getType();
 
         if ($lastActivityType === ActivityType::TYPE_CARDIO && $activityType == ActivityType::TYPE_CARDIO) {
             throw new \LogicException('Cardio exercises should not follow after each other.');

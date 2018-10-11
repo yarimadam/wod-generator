@@ -13,12 +13,15 @@ use OneFit\Activity\ActivityType;
  */
 final class BreakActivity extends AbstractActivity implements ActivityInterface
 {
-    /**
-     * BreakActivity constructor.
-     */
-    public function __construct()
+    /** @inheritdoc */
+    public static function getName(): string
     {
-        $this->name = 'Break';
-        $this->type = ActivityType::TYPE_BREAK;
+        return 'Break';
+    }
+
+    /** @inheritdoc */
+    public static function getType(): string
+    {
+        return ActivityType::TYPE_BREAK;
     }
 }

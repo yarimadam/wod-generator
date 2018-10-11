@@ -14,7 +14,7 @@ class BeginnersShouldGetFourBreaksMax implements RuleInterface
     public function resolve(WorkoutProgram $workoutProgram, ActivityInterface $activity, DateInterval $duration): bool
     {
         $breakCount = $workoutProgram->getBreakCount();
-        $isBreak = $activity->getType() === ActivityType::TYPE_BREAK;
+        $isBreak = $activity::getType() === ActivityType::TYPE_BREAK;
         $isBeginner = $workoutProgram->getParticipant()->getLevel() === PersonLevel::BEGINNER;
 
         if ($isBeginner && $isBreak && $breakCount >= 4) {
