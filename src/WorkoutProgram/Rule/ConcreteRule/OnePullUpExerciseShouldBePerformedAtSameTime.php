@@ -21,10 +21,11 @@ class OnePullUpExerciseShouldBePerformedAtSameTime implements RuleInterface
         $endDate = clone $startDate;
         $endDate->add($duration);
 
-        $numberOfRingExercises = $workoutProgram->getGym()->getNumberOfOccupiedSlots($activity, $startDate, $endDate);
+        $numberPullUpExercises = $workoutProgram->getGym()->getNumberOfOccupiedSlots($activity, $startDate, $endDate);
 
-        if ($activity::getName() === PullUpExercise::getName() && $numberOfRingExercises >= 1) {
-            throw new \LogicException('There isn\'t any available slots for Ring Exercise at given timeframe.');
+        if ($activity::getName() === PullUpExercise::getName() && $numberPullUpExercises >= 1) {
+            throw new \LogicException('There isn\'t any available slots 
+            for Pull Up exercise at the Gym, for given timeframe.');
         }
 
         return true;

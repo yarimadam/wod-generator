@@ -62,8 +62,8 @@ class WorkoutProgram
     ) {
         $this->participant = $participant;
         $this->governor = $governor;
-        $this->startDate = $startDate;
-        $this->timeTrack = $startDate;
+        $this->startDate = clone $startDate;
+        $this->timeTrack = clone $startDate;
         $this->maxNumberOfExercises = $maxNumberOfExercises ? $maxNumberOfExercises : 30;
         $this->activities = new ArrayObject();
         $this->defaultActivityDuration = DateInterval::createFromDateString('1 minutes');

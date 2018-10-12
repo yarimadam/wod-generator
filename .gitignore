@@ -1,2 +1,4 @@
 vendor
 .idea
+.reports
+.DS_Store

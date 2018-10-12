@@ -24,7 +24,8 @@ class OneRingExerciseShouldBePerformedAtSameTime implements RuleInterface
         $numberOfRingExercises = $workoutProgram->getGym()->getNumberOfOccupiedSlots($activity, $startDate, $endDate);
 
         if ($activity::getName() === RingExercise::getName() && $numberOfRingExercises >= 1) {
-            throw new \LogicException('There isn\'t any available slots for Ring Exercise at given timeframe.');
+            throw new \LogicException('There isn\'t any available slots 
+            for Ring exercise at the Gym, for given timeframe.');
         }
 
         return true;

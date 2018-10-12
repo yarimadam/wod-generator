@@ -50,4 +50,14 @@ class WorkoutProgramSequence
     {
         return $this->activity;
     }
+
+    public function getStartDate(): DateTime
+    {
+        return $this->startDate;
+    }
+
+    public function getEndDate(): DateTime
+    {
+        return $this->endDate;
+    }
 }
